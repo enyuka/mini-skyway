@@ -1,5 +1,5 @@
-const socketServer = "http://localhost:3002";
-const socket = io.connect(socketServer);
+const socketServer = "https://nishiguchi-onboarding.tk:443";
+const socket = io.connect(socketServer, {secure: true});
 const MAX_CONNECTION_COUNT = 3;
 
 class Peer {
