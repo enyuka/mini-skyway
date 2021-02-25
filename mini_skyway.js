@@ -1,4 +1,4 @@
-const socketServer = "https://nishiguchi-onboarding.tk:3002";
+const socketServer = "https://nishiguchi-onboarding.tk";
 const socket = io.connect(socketServer, {secure: true});
 const MAX_CONNECTION_COUNT = 3;
 
