@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>Hand Signaling</title>
+ <script src="/socket.io/socket.io.js"></script>
+ <script src="https://enyuka.github.io/mini-skyway/index.js"></script>
+ <script src="/js/index.js"></script>
+</head>
+<body>
+  socket.io signaling for multi-party (trickle ICE)<br />
+  <button type="button" onclick="startVideo();">Start Video</button>
+  <button type="button" onclick="stopVideo();">Stop Video</button>
+  &nbsp;
+  <button type="button" onclick="connect();">Connect</button>
+  <button type="button" onclick="hangUp();">Hang Up</button>
+  <div>
+    <video id="local_video" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></video>
+  </div>
+  <div id="container">
+  </div>
+</body>
+</html>
