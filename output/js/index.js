@@ -95,9 +95,9 @@ function emitTo(id, msg) {
   socket.emit("message", msg);
 }
 
-// -- room蜷阪ｒ蜿門ｾ� --
+// -- room名を取得 --
 function getRoomName() {
-  // 縺溘→縺医�縲� URL縺ｫ  ?roomname  縺ｨ縺吶ｋ
+  // たとえば、 URLに  ?roomname  とする
   let url = document.location.href;
   let args = url.split("?");
   if (args.length > 1) {
@@ -314,10 +314,10 @@ function prepareNewConnection(id) {
     if (evt.candidate) {
       console.log(evt.candidate);
 
-      // Trickle ICE 縺ｮ蝣ｴ蜷医�縲！CE candidate繧堤嶌謇九↓騾√ｋ
+      // Trickle ICE の場合は、ICE candidateを相手に送る
       sendIceCandidate(id, evt.candidate);
 
-      // Vanilla ICE 縺ｮ蝣ｴ蜷医↓縺ｯ縲∽ｽ輔ｂ縺励↑縺�
+      // Vanilla ICE の場合には、何もしない
     } else {
       console.log("empty ice event");
     }
@@ -383,10 +383,10 @@ function makeOffer(id) {
     .then(function () {
       console.log("setLocalDescription() succsess in promise");
 
-      // -- Trickle ICE 縺ｮ蝣ｴ蜷医�縲∝�譛欖DP繧堤嶌謇九↓騾√ｋ --
+      // -- Trickle ICE の場合は、初期SDPを相手に送る --
       sendSdp(id, peerConnection.localDescription);
 
-      // -- Vanilla ICE 縺ｮ蝣ｴ蜷医↓縺ｯ縲√∪縺�SDP縺ｯ騾√ｉ縺ｪ縺� --
+      // -- Vanilla ICE の場合には、まだSDPは送らない --
     })
     .catch(function (err) {
       console.error(err);
@@ -425,10 +425,10 @@ function makeAnswer(id) {
     .then(function () {
       console.log("setLocalDescription() succsess in promise");
 
-      // -- Trickle ICE 縺ｮ蝣ｴ蜷医�縲∝�譛欖DP繧堤嶌謇九↓騾√ｋ --
+      // -- Trickle ICE の場合は、初期SDPを相手に送る --
       sendSdp(id, peerConnection.localDescription);
 
-      // -- Vanilla ICE 縺ｮ蝣ｴ蜷医↓縺ｯ縲√∪縺�SDP縺ｯ騾√ｉ縺ｪ縺� --
+      // -- Vanilla ICE の場合には、まだSDPは送らない --
     })
     .catch(function (err) {
       console.error(err);
